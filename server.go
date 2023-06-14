@@ -17,11 +17,15 @@ type serverConfig struct {
 	Logger struct {
 		SkipPaths []string
 	}
-	ListenAddr string
-	Router     router.Config
+	ListenAddr      string
+	Router          router.Config
+	RemoteIPHeaders []string
 }
 
 func (c *serverConfig) initialize() {
+	if c.RemoteIPHeaders == nil {
+		c.RemoteIPHeaders = []string{"X-Real-IP", "X-Forwarded-For"}
+	}
 }
 
 type server struct {
@@ -45,6 +49,11 @@ func NewServer(logger logger.Logger, registry registry.Registry) gateway.Server 
 	s.config.initialize()
 
 	engine := gin.New()
+
+	if len(s.config.RemoteIPHeaders) > 0 {
+		engine.RemoteIPHeaders = s.config.RemoteIPHeaders
+	}
+
 	engine.Use(gin.Recovery())
 
 	engine.Use(s.newLoggerHandler(logger))
