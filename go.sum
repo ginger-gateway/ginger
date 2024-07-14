@@ -77,8 +77,8 @@ github.com/ginger-core/compound/registry v0.0.0-20230608151919-2963b75416c3 h1:9
 github.com/ginger-core/compound/registry v0.0.0-20230608151919-2963b75416c3/go.mod h1:iGQS/Lk9CnjRmMnRlEM4mQNnndpa+h+u9aVj0Fjyuoo=
 github.com/ginger-core/errors v0.0.0-20230613081709-f70e53f0b12c h1:wlml7L2uGFF3t0N/aW0eaqJ/CZBWNSQKHDlZodckD0o=
 github.com/ginger-core/errors v0.0.0-20230613081709-f70e53f0b12c/go.mod h1:cWRsvoY6zQYQoDdg/8NqUC5r47R4tUs+uLEugCbCjqo=
-github.com/ginger-core/gateway v0.0.0-20230608172238-cd4a0958dddc h1:8Ir+dJJB0A8fmSdsi3cd+x80d+Btg/Y3+R4NBSWfR1k=
-github.com/ginger-core/gateway v0.0.0-20230608172238-cd4a0958dddc/go.mod h1:n+Eg9q5i2dLKOhKcy8C+QfoSPGUBpvLrPuHGxdsljzc=
+github.com/ginger-core/gateway v0.0.0-20240714075215-1abe62a341df h1:7e2wvGvvEin+3B+wQyJHE1gIFOWTn+BlY77fo5q6Xro=
+github.com/ginger-core/gateway v0.0.0-20240714075215-1abe62a341df/go.mod h1:n+Eg9q5i2dLKOhKcy8C+QfoSPGUBpvLrPuHGxdsljzc=
 github.com/ginger-core/log v0.0.0-20230608152924-6a358515e498 h1:tJZTQxr7xWSXXDiKJ6Ab2+pLeb68WplZZAHFU+Q9sDQ=
 github.com/ginger-core/log v0.0.0-20230608152924-6a358515e498/go.mod h1:ADCplZ/RTn826tdF46cg5xX0yLuJ7dJ7kVep9fXqE9U=
 github.com/ginger-core/query v0.0.0-20230608153800-9375f70642d8 h1:YD5UjtaOj3Upo7EvSapbdylNkV9PcmUTglIOLYEjSI8=

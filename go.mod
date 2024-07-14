@@ -6,7 +6,7 @@ require (
 	github.com/gin-gonic/gin v1.9.1
 	github.com/ginger-core/compound/registry v0.0.0-20230608151919-2963b75416c3
 	github.com/ginger-core/errors v0.0.0-20230613081709-f70e53f0b12c
-	github.com/ginger-core/gateway v0.0.0-20230608172238-cd4a0958dddc
+	github.com/ginger-core/gateway v0.0.0-20240714075215-1abe62a341df
 	github.com/ginger-core/log v0.0.0-20230608152924-6a358515e498
 	github.com/ginger-core/query v0.0.0-20230608153800-9375f70642d8
 	github.com/google/uuid v1.3.0
