@@ -6,8 +6,8 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"github.com/ginger-core/gateway"
-	"github.com/ginger-gateway/ginger/internal"
-	"github.com/ginger-gateway/ginger/internal/request"
+	"github.com/ginger-gateway/ginger/http/internal"
+	"github.com/ginger-gateway/ginger/http/internal/request"
 )
 
 type router struct {

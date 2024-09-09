@@ -1,4 +1,4 @@
-package ginger
+package http
 
 import (
 	"net/http"
@@ -7,10 +7,10 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/ginger-core/gateway"
 	"github.com/ginger-core/log/logger"
-	"github.com/ginger-gateway/ginger/internal"
+	"github.com/ginger-gateway/ginger/http/internal"
 )
 
-func (s *server) newLoggerHandler(l logger.Logger) gin.HandlerFunc {
+func (s *srv) newLoggerHandler(l logger.Logger) gin.HandlerFunc {
 	l = l.WithTrace("handler")
 
 	skipPaths := make(map[string]bool, 0)

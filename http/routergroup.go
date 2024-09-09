@@ -1,11 +1,11 @@
-package ginger
+package http
 
 import (
 	"github.com/ginger-core/gateway"
-	"github.com/ginger-gateway/ginger/internal/router"
+	"github.com/ginger-gateway/ginger/http/internal/router"
 )
 
-func (s *server) NewRouterGroup(path string) gateway.RouterGroup {
+func (s *srv) NewRouterGroup(path string) gateway.RouterGroup {
 	g := router.NewGroup(
 		&s.engine.RouterGroup,
 		path,

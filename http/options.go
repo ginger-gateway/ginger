@@ -1,11 +1,12 @@
-package ginger
+package http
 
 import (
-	"github.com/gin-gonic/gin"
 	"net/http"
+
+	"github.com/gin-gonic/gin"
 )
 
-func (s *server) options(c *gin.Context) {
+func (s *srv) options(c *gin.Context) {
 	if c.Request.Method != "OPTIONS" {
 		c.Header("Access-Control-Allow-Origin", "*")
 		c.Next()

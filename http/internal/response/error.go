@@ -6,7 +6,7 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/ginger-core/errors"
 	"github.com/ginger-core/gateway"
-	"github.com/ginger-gateway/ginger/internal"
+	"github.com/ginger-gateway/ginger/http/internal"
 )
 
 func (r *responder) RespondError(request gateway.Request, err errors.Error) {

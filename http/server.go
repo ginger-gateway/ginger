@@ -1,4 +1,4 @@
-package ginger
+package http
 
 import (
 	"context"
@@ -10,37 +10,25 @@ import (
 	"github.com/ginger-core/errors"
 	"github.com/ginger-core/gateway"
 	"github.com/ginger-core/log/logger"
-	"github.com/ginger-gateway/ginger/internal/router"
 )
 
-type serverConfig struct {
-	Logger struct {
-		SkipPaths []string
-	}
-	ListenAddr      string
-	Router          router.Config
-	RemoteIPHeaders []string
+type Server interface {
+	gateway.Server
 }
 
-func (c *serverConfig) initialize() {
-	if c.RemoteIPHeaders == nil {
-		c.RemoteIPHeaders = []string{"X-Real-IP", "X-Forwarded-For"}
-	}
-}
-
-type server struct {
-	logger logger.Logger
-	config *serverConfig
-
+type srv struct {
 	*http.Server
+
+	logger logger.Logger
+	config config
+
 	engine     *gin.Engine
 	controller gateway.Controller
 }
 
-func NewServer(logger logger.Logger, registry registry.Registry) gateway.Server {
-	s := &server{
+func NewServer(logger logger.Logger, registry registry.Registry) Server {
+	s := &srv{
 		logger: logger,
-		config: new(serverConfig),
 	}
 
 	if err := registry.Unmarshal(&s.config); err != nil {
@@ -63,15 +51,15 @@ func NewServer(logger logger.Logger, registry registry.Registry) gateway.Server 
 	return s
 }
 
-func (s *server) SetController(controller gateway.Controller) {
+func (s *srv) SetController(controller gateway.Controller) {
 	s.controller = controller
 }
 
-func (s *server) GetController() gateway.Controller {
+func (s *srv) GetController() gateway.Controller {
 	return s.controller
 }
 
-func (s *server) Run() errors.Error {
+func (s *srv) Run() errors.Error {
 	s.Server = &http.Server{
 		Addr:    s.config.ListenAddr,
 		Handler: s.engine,
@@ -87,7 +75,7 @@ func (s *server) Run() errors.Error {
 	return nil
 }
 
-func (s *server) Shutdown(timeout time.Duration) errors.Error {
+func (s *srv) Shutdown(timeout time.Duration) errors.Error {
 	if s.Server == nil {
 		return errors.Internal().WithMessage("Server is not started yet.")
 	}
