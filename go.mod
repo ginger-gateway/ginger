@@ -11,6 +11,7 @@ require (
 	github.com/ginger-core/log v0.0.0-20230608152924-6a358515e498
 	github.com/ginger-core/query v0.0.0-20230608153800-9375f70642d8
 	github.com/google/uuid v1.3.0
+	github.com/nicksnyder/go-i18n/v2 v2.2.1
 	google.golang.org/grpc v1.55.0
 )
 
@@ -34,7 +35,6 @@ require (
 	github.com/mitchellh/mapstructure v1.5.0 // indirect
 	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd // indirect
 	github.com/modern-go/reflect2 v1.0.2 // indirect
-	github.com/nicksnyder/go-i18n/v2 v2.2.1 // indirect
 	github.com/pelletier/go-toml/v2 v2.0.8 // indirect
 	github.com/spf13/afero v1.9.5 // indirect
 	github.com/spf13/cast v1.5.1 // indirect

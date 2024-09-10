@@ -9,10 +9,6 @@ import (
 	"google.golang.org/grpc"
 )
 
-type acceptLanguageGetter interface {
-	GetLangs() []string
-}
-
 func (c *c) Handle(ctx context.Context, req any, info *grpc.UnaryServerInfo,
 	handler grpc.UnaryHandler) (resp any, err error) {
 	method := c.methods[info.FullMethod]
@@ -22,7 +18,8 @@ func (c *c) Handle(ctx context.Context, req any, info *grpc.UnaryServerInfo,
 				WithDetail(errors.NewDetail().
 					With("method", info.FullMethod)))
 	}
-	request := request.New(ctx, c.GetLanguageBundle(), req)
+	request := request.New(nil, c.GetLanguageBundle(), req).
+		WithContext(ctx)
 	r, err := method.Handle(request)
 	if err != nil {
 		return nil, grpcerr.Parse(err)
