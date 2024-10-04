@@ -10,7 +10,7 @@ import (
 )
 
 func (c *c) Handle(ctx context.Context, req any, info *grpc.UnaryServerInfo,
-	handler grpc.UnaryHandler) (resp any, err error) {
+	handler grpc.UnaryHandler) (any, error) {
 	method := c.methods[info.FullMethod]
 	if method == nil {
 		return nil, grpcerr.Generate(
@@ -22,7 +22,7 @@ func (c *c) Handle(ctx context.Context, req any, info *grpc.UnaryServerInfo,
 		WithContext(ctx)
 	r, err := method.Handle(request)
 	if err != nil {
-		return nil, grpcerr.Parse(err)
+		return nil, grpcerr.Generate(err)
 	}
 	return r, nil
 }
