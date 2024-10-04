@@ -34,6 +34,7 @@ type request struct {
 func New(ctx any, langBundle *i18n.Bundle, req any) gateway.Request {
 	r := &request{
 		Context: ctx,
+		body:    req,
 	}
 	if r.id == "" {
 		uid, _ := uuid.NewRandom()
